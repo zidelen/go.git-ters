@@ -1,6 +1,6 @@
 ﻿Console-based Chess Game: Project Instruction 
 
-![](imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.001.jpeg)
+![](CheatSheets/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.001.jpeg)
 
 **Objective:** 
 
@@ -32,7 +32,7 @@ King: wK (white), bK (black)
 
 A sample board might start like this: 
 
-![](imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.002.png)
+![](CheatSheets/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.002.png)
 
 3. **Making Moves with Standard Chess Notation:** 
 
