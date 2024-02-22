@@ -2,8 +2,8 @@
 
 ## Team Members
 
-| Name             | NetID |
-|------------------|-------|
-| Phillip Henry    | rrj29 |
-| Camila Godinez   | wir3  |
-| Jared Beasley    | vhu2  |
+| Name           | NetID |
+|----------------|-------|
+| Phillip Henry  | rrj29 |
+| Camila Godinez | wir3  |
+| Jared Beasley  | vhu2  |

@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,eclipse,jetbrains+all,intellij+all,macos,windows,netbeans,intellij+iml,intellij,vs,git,jetbrains+iml,jetbrains
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,eclipse,jetbrains+all,intellij+all,macos,windows,netbeans,intellij+iml,intellij,vs,git,jetbrains+iml,jetbrains
+# Created by https://www.toptal.com/developers/gitignore/api/vs,git,java,macos,eclipse,windows,intellij,netbeans,jetbrains,intellij+all,intellij+iml,jetbrains+all,jetbrains+iml,maven
+# Edit at https://www.toptal.com/developers/gitignore?templates=vs,git,java,macos,eclipse,windows,intellij,netbeans,jetbrains,intellij+all,intellij+iml,jetbrains+all,jetbrains+iml,maven
 
 ### Eclipse ###
 .metadata
@@ -552,6 +552,25 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
 ### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
@@ -941,4 +960,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/java,eclipse,jetbrains+all,intellij+all,macos,windows,netbeans,intellij+iml,intellij,vs,git,jetbrains+iml,jetbrains
+# End of https://www.toptal.com/developers/gitignore/api/vs,git,java,macos,eclipse,windows,intellij,netbeans,jetbrains,intellij+all,intellij+iml,jetbrains+all,jetbrains+iml,maven
