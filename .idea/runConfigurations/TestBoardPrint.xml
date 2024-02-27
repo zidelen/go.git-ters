@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="TestBoardPrint" type="Application" factoryName="Application" singleton="false">
-    <option name="MAIN_CLASS_NAME" value="TestBoardPrint" />
+    <option name="MAIN_CLASS_NAME" value="chess.board.TestBoardPrint" />
     <module name="ChessProject" />
     <method v="2">
       <option name="Make" enabled="true" />
