@@ -1,3 +1,5 @@
+package chess.board;
+
 public class Chessboard {
 
   /*** The perspective of the chessboard, indicating the color of the bottom-left* cell. Should be 0 for White Perspective (Default) or 9 for Black* Perspective.*/
