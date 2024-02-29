@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="TestBoardPrint" type="Application" factoryName="Application" singleton="true">
-    <option name="MAIN_CLASS_NAME" value="chess.board.TestBoardPrint" />
+  <configuration default="false" name="testSnippet" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="snippets.testSnippet" />
     <module name="ChessProject" />
     <method v="2">
       <option name="Make" enabled="true" />
