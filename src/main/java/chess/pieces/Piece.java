@@ -1,6 +1,6 @@
 package chess.pieces;
 
-public class Piece {
+public abstract class Piece {
 
   private String name;
   private Color color;
