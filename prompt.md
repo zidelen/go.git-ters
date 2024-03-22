@@ -1,6 +1,6 @@
 ﻿Console-based Chess Game: Project Instruction
 
-![](CheatSheets/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.001.jpeg)
+![](rcs/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.001.jpeg)
 
 **Objective:**
 
@@ -39,7 +39,7 @@ King: wK (white), bK (black)
 
 A sample board might start like this:
 
-![](CheatSheets/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.002.png)
+![](rcs/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.002.png)
 
 3. **Making Moves with Standard Chess Notation:**
 
@@ -121,7 +121,7 @@ implementation of possibleMoves() based on how they move on the board.
 
 - start(): Initializes a game.
 - end(): Ends a game and declares a winner or a draw.
-- play(): Main loop for playing the game. Alternates turns, checks for check/checkmate, and gets
+- play(): edu.txstate.git.rrj29.go_git_ters.Main loop for playing the game. Alternates turns, checks for check/checkmate, and gets
   moves from players.
 
 5. **Position Attributes**:
