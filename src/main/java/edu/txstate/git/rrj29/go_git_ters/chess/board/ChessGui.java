@@ -1,13 +1,17 @@
+package edu.txstate.git.rrj29.go_git_ters.chess.board;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ChessStep2 {
+
+// TODO: Implement Game logic into movement checks
+public class ChessGui {
 
     private static final String[] UNICODE_PIECES = {
-            "\u2654", "\u2655", "\u2656", "\u2657", "\u2658", "\u2659",
-            "\u265A", "\u265B", "\u265C", "\u265D", "\u265E", "\u265F"
+            "♔", "♕", "♖", "♗", "♘", "♙",
+            "♚", "♛", "♜", "♝", "♞", "♟"
     };
 
     private static JLabel selectedLabel = null; // Tracks the selected piece
@@ -15,7 +19,7 @@ public class ChessStep2 {
     private static Color lightColor = new Color(240, 217, 181);
     private static Color darkColor = new Color(181, 136, 99);
 
-    public static void main(String[] args) {
+    public static void display() {
         JFrame frame = new JFrame("Chess Board");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
