@@ -8,6 +8,8 @@ public class Main {
   public static void main(String[] args) throws IOException {
     Game chess = new Game();
     chess.start();
-    chess.play();
+    chess.playGUI();
   }
 }
+
+

@@ -1,7 +1,7 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable;
+package edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable;
 
 import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Piece;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
 import edu.txstate.git.rrj29.go_git_ters.utils.Color;
 import edu.txstate.git.rrj29.go_git_ters.utils.Position;
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ public class Pawn extends Piece {
    * @param position The position of the pawn
    * @param board    The chessboard
    */
-  public Pawn(Color color, Position position, Board board) {
-    super(color, position, color.getPrefix() + "P", board);
+  public Pawn(String path, Color color, Position position, Board board) {
+    super(path,color, position, color.getPrefix() + "P", board);
     DIRECTION = (this.color == Color.WHITE) ? 1 : -1;
     updateMoves();
   }

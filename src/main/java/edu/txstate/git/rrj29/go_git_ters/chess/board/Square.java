@@ -1,6 +1,6 @@
 package edu.txstate.git.rrj29.go_git_ters.chess.board;
 
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Piece;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
 import edu.txstate.git.rrj29.go_git_ters.utils.Color;
 
 /**

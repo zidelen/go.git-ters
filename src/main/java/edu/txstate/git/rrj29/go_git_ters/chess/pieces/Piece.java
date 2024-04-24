@@ -1,15 +1,17 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.Pieces;
+package edu.txstate.git.rrj29.go_git_ters.chess.pieces;
 
 import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
 import edu.txstate.git.rrj29.go_git_ters.utils.Color;
 import edu.txstate.git.rrj29.go_git_ters.utils.Position;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  * Abstract class representing a chess piece.
  */
 public abstract class Piece {
 
+  protected final ImageIcon img;
   protected final String name; // The name of the piece
   protected final Color color; // The color of the piece
   protected Board board; // The chessboard
@@ -24,12 +26,22 @@ public abstract class Piece {
    * @param name     The name of the piece
    * @param board    The chessboard
    */
-  public Piece(Color color, Position position, String name, Board board) {
+  public Piece(String path, Color color, Position position, String name, Board board) {
+    // Set Piece Icon
+    ImageIcon icon = new ImageIcon(path);
+    java.awt.Image image = icon.getImage();
+    java.awt.Image resizedImg = image.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
+    img = new ImageIcon(resizedImg);
+
     this.color = color;
     this.position = position;
     this.name = name;
     this.board = board;
     this.moves = new Position[0];
+  }
+
+  public ImageIcon getimg() {
+    return img;
   }
 
   /**

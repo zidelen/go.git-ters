@@ -1,7 +1,7 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable;
+package edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable;
 
 import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Piece;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
 import edu.txstate.git.rrj29.go_git_ters.utils.Color;
 import edu.txstate.git.rrj29.go_git_ters.utils.Position;
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ public class Knight extends Piece {
    * @param position The position of the knight
    * @param board    The chessboard
    */
-  public Knight(Color color, Position position, Board board) {
-    super(color, position, color.getPrefix() + "N", board);
+  public Knight(String path, Color color, Position position, Board board) {
+    super(path,color, position, color.getPrefix() + "N", board);
     updateMoves();
   }
 

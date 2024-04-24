@@ -1,12 +1,13 @@
 package edu.txstate.git.rrj29.go_git_ters.chess.board;
 
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Piece;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable.Bishop;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable.King;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable.Knight;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable.Pawn;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable.Queen;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Playable.Rook;
+
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Bishop;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.King;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Knight;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Pawn;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Queen;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Rook;
 import edu.txstate.git.rrj29.go_git_ters.utils.Color;
 import edu.txstate.git.rrj29.go_git_ters.utils.Column;
 import edu.txstate.git.rrj29.go_git_ters.utils.Position;
@@ -91,15 +92,18 @@ public class Board {
       return null;
     }
     Color color = (position.row() > 4.5) ? Color.BLACK : Color.WHITE;
+
+    String path = "src/main/java/edu/txstate/git/rrj29/go_git_ters/chess/pieces/imgs/";
+
     if (position.row() == 2 || position.row() == 7) {
-      return new Pawn(color, position, this);
+      return new Pawn(path + color.getPrefix() +"-pawn.png",color, position, this);
     } else {
       return switch (position.column()) {
-        case 1, 8 -> new Rook(color, position, this);
-        case 2, 7 -> new Knight(color, position, this);
-        case 3, 6 -> new Bishop(color, position, this);
-        case 4 -> new Queen(color, position, this);
-        case 5 -> new King(color, position, this);
+        case 1, 8 -> new Rook(path + color.getPrefix() +"-rook.png",color, position, this);
+        case 2, 7 -> new Knight(path + color.getPrefix() +"-knight.png",color, position, this);
+        case 3, 6 -> new Bishop(path + color.getPrefix() +"-bishop.png",color, position, this);
+        case 4 -> new Queen(path + color.getPrefix() +"-queen.png",color, position, this);
+        case 5 -> new King(path + color.getPrefix() +"-king.png",color, position, this);
         default -> null;
       };
     }

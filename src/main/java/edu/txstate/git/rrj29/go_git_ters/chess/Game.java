@@ -1,8 +1,8 @@
 package edu.txstate.git.rrj29.go_git_ters.chess;
 
 import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
-import edu.txstate.git.rrj29.go_git_ters.chess.Pieces.Piece;
-import edu.txstate.git.rrj29.go_git_ters.chess.board.ChessGui;
+import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
+import edu.txstate.git.rrj29.go_git_ters.chess.board.ChessGUI;
 import edu.txstate.git.rrj29.go_git_ters.utils.Color;
 import edu.txstate.git.rrj29.go_git_ters.utils.Position;
 import java.io.InputStream;
@@ -46,12 +46,35 @@ public class Game {
   /**
    * Starts playing the game.
    */
-  public void play() {
+  public void playGUI() {
     if (board == null) {
       throw new GameNotStartedException("The game has not been started. Call the start() method first.");
     }
-    ChessGui.display();
+    ChessGUI.start(board);
   }
+  /**
+   * Starts playing the game.
+   */
+  public void playCLI() {
+    if (board == null) {
+      throw new GameNotStartedException("The game has not been started. Call the start() method first.");
+    }
+    while (true) {
+      boolean gameEnd = board.isCheckmate(Color.BLACK) || board.isCheckmate(Color.WHITE);
+      if (gameEnd) {
+        break;
+      }
+
+      for (int i = 0; i < 20; i++) {
+        OUTPUT.println();
+      }
+
+      printGameState();
+      playerMove();
+    }
+  }
+
+
 
   /**
    * Executes a player move.
