@@ -1,6 +1,6 @@
 ﻿Console-based Chess Game: Project Instruction
 
-![](rcs/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.001.jpeg)
+![](prompt/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.001.jpeg)
 
 **Objective:**
 
@@ -20,7 +20,7 @@ in size, as per standard chess rules.
   be displayed on the top and left side of the board to help players identify each square's
   position.
 
-2. **Text Representation of Chess Pieces:**
+1. **Text Representation of Chess Pieces:**
 
 Different pieces can be represented using letters uppercase or lowercase, white pieces start with
 ‘w’ and black pieces start with ‘b’.
@@ -39,9 +39,9 @@ King: wK (white), bK (black)
 
 A sample board might start like this:
 
-![](rcs/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.002.png)
+![](prompt/imgs/Aspose.Words.32c4c3e0-bf9e-4ed4-b40e-a645831afd94.002.png)
 
-3. **Making Moves with Standard Chess Notation:**
+1. **Making Moves with Standard Chess Notation:**
 
 Players will make moves by typing them into the console using standard chess notation. The basic
 format will be [FROM] space [TO].
@@ -56,7 +56,7 @@ format will be [FROM] space [TO].
   piece for promotion. This can be represented as "E7 E8=Q" to promote a pawn moving from E7 to E8
   into a Queen. (optional)
 
-4. **User Interface Workflow:**
+1. **User Interface Workflow:**
 
 - Display the current state of the chessboard.
 - Indicate which player's turn it is.
@@ -82,7 +82,7 @@ format will be [FROM] space [TO].
 **Subclasses: Pawn, Rook, Knight, Bishop, Queen, King**: Each of these will have its own
 implementation of possibleMoves() based on how they move on the board.
 
-2. **Board**
+1. **Board**
 
 **Attributes:**
 
@@ -97,7 +97,7 @@ implementation of possibleMoves() based on how they move on the board.
 - isCheckmate(Color color): Checks if a given color is in checkmate. (optional)
 - display(): Prints the board to the console.
 
-3. **Player**
+1. **Player**
 
 **Attributes:**
 

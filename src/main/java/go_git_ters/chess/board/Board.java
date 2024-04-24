@@ -1,16 +1,19 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.board;
+/**
+ * Represents a chessboard with pieces and squares.
+ */
+package go_git_ters.chess.board;
 
 
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Bishop;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.King;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Knight;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Pawn;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Queen;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable.Rook;
-import edu.txstate.git.rrj29.go_git_ters.utils.Color;
-import edu.txstate.git.rrj29.go_git_ters.utils.Column;
-import edu.txstate.git.rrj29.go_git_ters.utils.Position;
+import go_git_ters.chess.pieces.Piece;
+import go_git_ters.chess.pieces.playable.Bishop;
+import go_git_ters.chess.pieces.playable.King;
+import go_git_ters.chess.pieces.playable.Knight;
+import go_git_ters.chess.pieces.playable.Pawn;
+import go_git_ters.chess.pieces.playable.Queen;
+import go_git_ters.chess.pieces.playable.Rook;
+import go_git_ters.utils.Color;
+import go_git_ters.utils.Column;
+import go_git_ters.utils.Position;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -22,8 +25,8 @@ public class Board {
 
   private static final int BOARD_DIMENSION = 8;
 
-  Square[][] board;
-  ArrayList<Piece> Captures;
+  final Square[][] board;
+  final ArrayList<Piece> Captures;
 
   /**
    * Constructs a new chessboard and initializes it with pieces.
@@ -36,6 +39,13 @@ public class Board {
   }
 
   // Methods for updating the board state
+
+  /**
+   * Transforms the perspective of the board depending on the color.
+   */
+  private static int viewPoint(int row, int PERSPECTIVE) {
+    return Math.abs(row - PERSPECTIVE);
+  }
 
   /**
    * Updates the possible moves for all pieces on the board.
@@ -51,7 +61,8 @@ public class Board {
   }
 
   /**
-   * Checks if the specified position is a valid starting position for a move of the given color.
+   * Checks if the specified position is a valid starting position for a move of
+   * the given color.
    */
   public boolean validFromPosition(String string, Color color) {
     if (!Position.validPos(string)) {
@@ -76,13 +87,15 @@ public class Board {
   private void initializePieces() {
     for (int row = 0; row < BOARD_DIMENSION; row++) {
       for (int column = 0; column < BOARD_DIMENSION; column++) {
-        board[row][column] = new Square(((row + column) % 2 == 0) ? Color.BLACK : Color.WHITE);
+        board[row][column] = new Square(
+          ((row + column) % 2 == 0) ? Color.BLACK : Color.WHITE);
       }
     }
 
     for (int row = 0; row < BOARD_DIMENSION; row++) {
       for (int column = 0; column < BOARD_DIMENSION; column++) {
-        board[row][column].setPiece(createExpectedPiece(new Position(row + 1, column + 1)));
+        board[row][column].setPiece(
+          createExpectedPiece(new Position(row + 1, column + 1)));
       }
     }
   }
@@ -93,21 +106,33 @@ public class Board {
     }
     Color color = (position.row() > 4.5) ? Color.BLACK : Color.WHITE;
 
-    String path = "src/main/java/edu/txstate/git/rrj29/go_git_ters/chess/pieces/imgs/";
+    String path = "src/main/resources/";
 
     if (position.row() == 2 || position.row() == 7) {
-      return new Pawn(path + color.getPrefix() +"-pawn.png",color, position, this);
+      return new Pawn(path + color.getPrefix() + "-pawn.png", color, position,
+        this);
     } else {
       return switch (position.column()) {
-        case 1, 8 -> new Rook(path + color.getPrefix() +"-rook.png",color, position, this);
-        case 2, 7 -> new Knight(path + color.getPrefix() +"-knight.png",color, position, this);
-        case 3, 6 -> new Bishop(path + color.getPrefix() +"-bishop.png",color, position, this);
-        case 4 -> new Queen(path + color.getPrefix() +"-queen.png",color, position, this);
-        case 5 -> new King(path + color.getPrefix() +"-king.png",color, position, this);
+        case 1, 8 ->
+          new Rook(path + color.getPrefix() + "-rook.png", color, position,
+            this);
+        case 2, 7 ->
+          new Knight(path + color.getPrefix() + "-knight.png", color, position,
+            this);
+        case 3, 6 ->
+          new Bishop(path + color.getPrefix() + "-bishop.png", color, position,
+            this);
+        case 4 ->
+          new Queen(path + color.getPrefix() + "-queen.png", color, position,
+            this);
+        case 5 ->
+          new King(path + color.getPrefix() + "-king.png", color, position,
+            this);
         default -> null;
       };
     }
   }
+
   /**
    * Displays the current state of the board.
    */
@@ -183,7 +208,6 @@ public class Board {
 
       Piece pieceToMove = getPiece(from);
 
-
       if (legalMove(pieceToMove, to)) {
         pieceToMove.move(to);
 
@@ -200,6 +224,8 @@ public class Board {
     }
   }
 
+  // Helper methods for managing board state
+
   /**
    * Checks if a move from a piece to a specified position is legal.
    */
@@ -212,14 +238,14 @@ public class Board {
     return false;
   }
 
-  // Helper methods for managing board state
-
   /**
    * Clears a space on the board by removing the piece occupying it.
    */
   private void clearSpace(Position position) {
     board[position.row() - 1][position.column() - 1].setPiece(null);
   }
+
+  // Other helper methods
 
   /**
    * Updates a space on the board with a new piece.
@@ -232,22 +258,14 @@ public class Board {
     board[position.row() - 1][position.column() - 1].setPiece(piece);
   }
 
-  // Other helper methods
-
-  /**
-   * Transforms the perspective of the board depending on the color.
-   */
-  private static int viewPoint(int row, int PERSPECTIVE) {
-    return Math.abs(row - PERSPECTIVE);
-  }
-
   /**
    * Checks if a given position is valid on the board.
    */
   public boolean isValidPosition(Position position) {
     int row = position.row();
     int col = position.column();
-    return row > 0 && row <= BOARD_DIMENSION && col > 0 && col <= BOARD_DIMENSION;
+    return row > 0 && row <= BOARD_DIMENSION && col > 0
+      && col <= BOARD_DIMENSION;
   }
 
   /**
@@ -275,10 +293,65 @@ public class Board {
   }
 
   public boolean isValidPosition(int newRow, int newCol) {
-    return isValidPosition(new Position(newRow,newCol));
+    return isValidPosition(new Position(newRow, newCol));
   }
 
   public boolean isCheckmate(Color color) {
     return false;
+  }
+
+  /**
+   * Represents a square on the chessboard.
+   */
+  public static class Square {
+
+    private final Color color; // The color of the square
+    private Piece piece; // The piece currently occupying the square, null if empty
+
+    /**
+     * Constructs an empty square with the specified color.
+     *
+     * @param color The color of the square
+     */
+    public Square(Color color) {
+      this.color = color;
+      this.piece = null;
+    }
+
+    /**
+     * Returns the piece currently occupying the square.
+     *
+     * @return The piece occupying the square, or null if empty
+     */
+    public Piece piece() {
+      return piece;
+    }
+
+    /**
+     * Sets the piece occupying the square.
+     *
+     * @param piece The piece to be placed on the square
+     */
+    public void setPiece(Piece piece) {
+      this.piece = piece;
+    }
+
+    /**
+     * Checks if the square is occupied by a piece.
+     *
+     * @return True if the square is occupied, otherwise false
+     */
+    public boolean occupied() {
+      return piece != null;
+    }
+
+    /**
+     * Returns the color of the square.
+     *
+     * @return The color of the square
+     */
+    public Color color() {
+      return color;
+    }
   }
 }

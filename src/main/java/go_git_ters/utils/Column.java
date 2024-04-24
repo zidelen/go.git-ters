@@ -1,4 +1,4 @@
-package edu.txstate.git.rrj29.go_git_ters.utils;
+package go_git_ters.utils;
 
 /**
  * Enum representing columns on a chessboard.
@@ -18,7 +18,8 @@ public enum Column {
   }
 
   /**
-   * Converts a numeric column value to its corresponding character representation.
+   * Converts a numeric column value to its corresponding character
+   * representation.
    *
    * @param columnNumber The numeric value of the column
    * @return The character representation of the column
@@ -33,7 +34,8 @@ public enum Column {
   }
 
   /**
-   * Converts a character column representation to its corresponding numeric value.
+   * Converts a character column representation to its corresponding numeric
+   * value.
    *
    * @param columnChar The character representation of the column
    * @return The numeric value of the column

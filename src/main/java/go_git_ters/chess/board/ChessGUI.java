@@ -1,6 +1,6 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.board;
+package go_git_ters.chess.board;
 
-import edu.txstate.git.rrj29.go_git_ters.utils.Position;
+import go_git_ters.utils.Position;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,10 +17,10 @@ public class ChessGUI {
 
   private static final Color lightColor = new Color(218, 183, 152);
   private static final Color darkColor = new Color(126, 94, 69);
-  private static Board board; // The chessboard
+  // The chessboard
   private static JLabel selectedPiece;
   private static JPanel selectedSpace;
-  private static edu.txstate.git.rrj29.go_git_ters.utils.Color turn = edu.txstate.git.rrj29.go_git_ters.utils.Color.WHITE;
+  private static go_git_ters.utils.Color turn = go_git_ters.utils.Color.WHITE;
 
   // Create a method to resize ImageIcon
 
@@ -36,8 +36,8 @@ public class ChessGUI {
     boardPanel.setLayout(new GridLayout(8, 8));
     boardPanel.setPreferredSize(new Dimension(400, 400));
 
-    for (int row = 7; row >=0; row--) {
-      for (int col = 7; col >=0; col--) {
+    for (int row = 7; row >= 0; row--) {
+      for (int col = 7; col >= 0; col--) {
 
         JLabel square;
         if (b.board[row][col].occupied()) {
@@ -61,6 +61,7 @@ public class ChessGUI {
 
           static String fromPOS;
           static String toPOS;
+
           @Override
           public void mouseClicked(MouseEvent e) {
             int currentRow = -1;
@@ -69,29 +70,27 @@ public class ChessGUI {
             for (int i = 0; i < 8; i++) {
               for (int j = 0; j < 8; j++) {
                 if (boardPanel.getComponent(i * 8 + j) == panelSquare) {
-                  currentRow = Math.abs(i-8);
-                  currentCol = Math.abs(j-8);
+                  currentRow = Math.abs(i - 8);
+                  currentCol = Math.abs(j - 8);
                   break;
                 }
               }
             }
 
-            Position selected = new Position(currentRow,currentCol);
+            Position selected = new Position(currentRow, currentCol);
             if (selectedSpace == null) { // No piece has been selected yet
-              if (b.validFromPosition(selected.toString(),turn)){
+              if (b.validFromPosition(selected.toString(), turn)) {
                 selectedPiece = square;
                 selectedSpace = panelSquare;
-                panelSquare.setBorder(BorderFactory.createLineBorder(Color.RED));
+                panelSquare.setBorder(
+                  BorderFactory.createLineBorder(Color.RED));
                 this.fromPOS = selected.toString();
-                System.out.println(fromPOS);
               }
             } else {
               this.toPOS = selected.toString();
-              System.out.println(this.fromPOS+this.toPOS);
-              boolean legalMove = b.movePiece(this.fromPOS+this.toPOS);
+              boolean legalMove = b.movePiece(this.fromPOS + this.toPOS);
 
-              if(legalMove){
-                System.out.println("Moved");
+              if (legalMove) {
                 square.setIcon(selectedPiece.getIcon()); // Move piece
                 square.setHorizontalAlignment(
                   SwingConstants.CENTER); // Center the piece horizontally
@@ -102,6 +101,8 @@ public class ChessGUI {
                   BorderFactory.createLineBorder(Color.GRAY));
                 nextTurn();
               }
+              selectedSpace.setBorder(
+                BorderFactory.createLineBorder(Color.GRAY));
               // Reset selection
               selectedPiece = null;
               selectedSpace = null;
@@ -121,8 +122,11 @@ public class ChessGUI {
     window.setLocationRelativeTo(null);
     window.setVisible(true);
   }
+
   private static void nextTurn() {
-    turn = (turn == edu.txstate.git.rrj29.go_git_ters.utils.Color.WHITE) ? edu.txstate.git.rrj29.go_git_ters.utils.Color.BLACK : edu.txstate.git.rrj29.go_git_ters.utils.Color.WHITE;
+    turn =
+      (turn == go_git_ters.utils.Color.WHITE) ? go_git_ters.utils.Color.BLACK
+        : go_git_ters.utils.Color.WHITE;
   }
 }
 

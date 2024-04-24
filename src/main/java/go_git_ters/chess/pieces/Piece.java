@@ -1,8 +1,8 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.pieces;
+package go_git_ters.chess.pieces;
 
-import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
-import edu.txstate.git.rrj29.go_git_ters.utils.Color;
-import edu.txstate.git.rrj29.go_git_ters.utils.Position;
+import go_git_ters.chess.board.Board;
+import go_git_ters.utils.Color;
+import go_git_ters.utils.Position;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -14,23 +14,26 @@ public abstract class Piece {
   protected final ImageIcon img;
   protected final String name; // The name of the piece
   protected final Color color; // The color of the piece
-  protected Board board; // The chessboard
+  protected final Board board; // The chessboard
   protected Position position; // The position of the piece
   protected Position[] moves; // Possible moves for the piece
 
   /**
    * Constructs a piece with the specified color, position, name, and board.
    *
+   * @param path     The image path for the piece
    * @param color    The color of the piece
    * @param position The position of the piece
    * @param name     The name of the piece
    * @param board    The chessboard
    */
-  public Piece(String path, Color color, Position position, String name, Board board) {
+  public Piece(String path, Color color, Position position, String name,
+    Board board) {
     // Set Piece Icon
     ImageIcon icon = new ImageIcon(path);
     java.awt.Image image = icon.getImage();
-    java.awt.Image resizedImg = image.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
+    java.awt.Image resizedImg = image.getScaledInstance(60, 60,
+      java.awt.Image.SCALE_SMOOTH);
     img = new ImageIcon(resizedImg);
 
     this.color = color;
@@ -99,16 +102,14 @@ public abstract class Piece {
    * Moves the piece to the specified position.
    *
    * @param newPos The new position to move the piece to
-   * @return True if the move is valid, otherwise false
    */
-  public boolean move(Position newPos) {
+  public void move(Position newPos) {
     for (Position move : possibleMoves()) {
       if (Position.posEquals(move, newPos)) {
         this.position = newPos;
-        return true;
+        return;
       }
     }
-    return false;
   }
 
   /**
@@ -145,11 +146,12 @@ public abstract class Piece {
   /**
    * Adds possible moves in a specified direction to the move list.
    *
-   * @param dirRow    The row direction
-   * @param dirCol    The column direction
-   * @param moveList  The list of possible moves
+   * @param dirRow   The row direction
+   * @param dirCol   The column direction
+   * @param moveList The list of possible moves
    */
-  protected void addMovesInDirection(int dirRow, int dirCol, ArrayList<Position> moveList) {
+  protected void addMovesInDirection(int dirRow, int dirCol,
+    ArrayList<Position> moveList) {
     int newRow = position.getRow() + dirRow;
     int newCol = position.getCol() + dirCol;
     while (board.isValidPosition(newRow, newCol)) {

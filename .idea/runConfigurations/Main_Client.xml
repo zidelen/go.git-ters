@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main Client" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="edu.txstate.git.rrj29.go_git_ters.Main" />
-    <module name="ChessProject" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>

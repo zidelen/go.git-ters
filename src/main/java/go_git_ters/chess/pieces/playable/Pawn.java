@@ -1,9 +1,9 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable;
+package go_git_ters.chess.pieces.playable;
 
-import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
-import edu.txstate.git.rrj29.go_git_ters.utils.Color;
-import edu.txstate.git.rrj29.go_git_ters.utils.Position;
+import go_git_ters.chess.board.Board;
+import go_git_ters.chess.pieces.Piece;
+import go_git_ters.utils.Color;
+import go_git_ters.utils.Position;
 import java.util.ArrayList;
 
 /**
@@ -11,18 +11,16 @@ import java.util.ArrayList;
  */
 public class Pawn extends Piece {
 
-  private final int DIRECTION;
-
   /**
    * Constructs a pawn with the specified color, position, and board.
    *
+   * @param path     The image path for the pawn
    * @param color    The color of the pawn
    * @param position The position of the pawn
    * @param board    The chessboard
    */
   public Pawn(String path, Color color, Position position, Board board) {
-    super(path,color, position, color.getPrefix() + "P", board);
-    DIRECTION = (this.color == Color.WHITE) ? 1 : -1;
+    super(path, color, position, color.getPrefix() + "P", board);
     updateMoves();
   }
 
@@ -39,13 +37,15 @@ public class Pawn extends Piece {
     int direction = (this.color == Color.WHITE) ? 1 : -1;
 
     Position oneSquareForward = this.position.modifyRow(direction);
-    if (board.isValidPosition(oneSquareForward) && board.getPiece(oneSquareForward) == null) {
+    if (board.isValidPosition(oneSquareForward)
+      && board.getPiece(oneSquareForward) == null) {
       newMoveList.add(oneSquareForward);
 
       int startingRow = (this.color == Color.WHITE) ? 2 : 7;
       if (currentRow == startingRow) {
         Position twoSquaresForward = this.position.modifyRow(2 * direction);
-        if (board.isValidPosition(twoSquaresForward) && board.getPiece(twoSquaresForward) == null) {
+        if (board.isValidPosition(twoSquaresForward)
+          && board.getPiece(twoSquaresForward) == null) {
           newMoveList.add(twoSquaresForward);
         }
       }
@@ -54,7 +54,8 @@ public class Pawn extends Piece {
     Position leftDiagonal = this.position.modifyPos(direction, -1);
     if (board.isValidPosition(leftDiagonal)) {
       Piece pieceAtLeftDiagonal = board.getPiece(leftDiagonal);
-      if (pieceAtLeftDiagonal != null && pieceAtLeftDiagonal.color() != this.color) {
+      if (pieceAtLeftDiagonal != null
+        && pieceAtLeftDiagonal.color() != this.color) {
         newMoveList.add(leftDiagonal);
       }
     }
@@ -62,7 +63,8 @@ public class Pawn extends Piece {
     Position rightDiagonal = this.position.modifyPos(direction, 1);
     if (board.isValidPosition(rightDiagonal)) {
       Piece pieceAtRightDiagonal = board.getPiece(rightDiagonal);
-      if (pieceAtRightDiagonal != null && pieceAtRightDiagonal.color() != this.color) {
+      if (pieceAtRightDiagonal != null
+        && pieceAtRightDiagonal.color() != this.color) {
         newMoveList.add(rightDiagonal);
       }
     }

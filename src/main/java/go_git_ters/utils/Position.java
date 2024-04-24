@@ -1,4 +1,4 @@
-package edu.txstate.git.rrj29.go_git_ters.utils;
+package go_git_ters.utils;
 
 /**
  * Represents a position on a chessboard.
@@ -56,7 +56,8 @@ public class Position {
    *
    * @param string The string representation of the position (e.g., "a1")
    * @return The Position object representing the position
-   * @throws IllegalArgumentException if the string does not represent a valid position
+   * @throws IllegalArgumentException if the string does not represent a valid
+   *                                  position
    */
   public static Position strToPos(String string) {
     if (validPos(string)) {
@@ -117,7 +118,8 @@ public class Position {
   }
 
   /**
-   * Creates a new position by modifying both the row and column of this position.
+   * Creates a new position by modifying both the row and column of this
+   * position.
    *
    * @param rowChange    The amount to change the row by
    * @param columnChange The amount to change the column by

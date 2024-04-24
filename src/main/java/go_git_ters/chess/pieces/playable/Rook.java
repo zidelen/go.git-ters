@@ -1,9 +1,9 @@
-package edu.txstate.git.rrj29.go_git_ters.chess.pieces.playable;
+package go_git_ters.chess.pieces.playable;
 
-import edu.txstate.git.rrj29.go_git_ters.chess.pieces.Piece;
-import edu.txstate.git.rrj29.go_git_ters.chess.board.Board;
-import edu.txstate.git.rrj29.go_git_ters.utils.Color;
-import edu.txstate.git.rrj29.go_git_ters.utils.Position;
+import go_git_ters.chess.board.Board;
+import go_git_ters.chess.pieces.Piece;
+import go_git_ters.utils.Color;
+import go_git_ters.utils.Position;
 import java.util.ArrayList;
 
 /**
