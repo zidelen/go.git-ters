@@ -20,6 +20,12 @@ public class Main {
    *
    * @param args Command-line arguments (not used)
    */
+//  public static void main(String[] args) {
+//    Game chess = new Game();
+//    chess.start();
+//    chess.playCLI();
+//  }
+
   public static void main(String[] args) {
     Game chess = new Game();
     chess.start();
@@ -33,8 +39,7 @@ public class Main {
   public static class Game {
 
     private PrintStream OUTPUT = System.out; // Output stream for displaying messages
-    private Scanner INPUT = new Scanner(
-      System.in); // Input stream for user input
+    private Scanner INPUT = new Scanner(System.in); // Input stream for user input
     private Board board; // The chessboard
     private Player White; // Player with white pieces
     private Player Black; // Player with black pieces
