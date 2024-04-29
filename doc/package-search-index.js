@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"go_git_ters"},{"l":"go_git_ters.chess.board"},{"l":"go_git_ters.chess.pieces"},{"l":"go_git_ters.chess.pieces.playable"},{"l":"go_git_ters.utils"}];updateSearchResults();

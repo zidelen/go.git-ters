@@ -77,8 +77,4 @@ game.
 Feel free to contact us if you have any questions or suggestions. Happy gaming!
 🚀🛡️
 
----
-
-*Note: Update the GitHub repository URL in the clone command and other relevant
-details based on your actual project.*
 

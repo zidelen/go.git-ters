@@ -1,0 +1,5 @@
+go_git_ters
+go_git_ters.chess.board
+go_git_ters.chess.pieces
+go_git_ters.chess.pieces.playable
+go_git_ters.utils

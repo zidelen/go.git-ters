@@ -1,5 +1,6 @@
 package go_git_ters.utils;
 
+
 /**
  * Represents a position on a chessboard.
  */
